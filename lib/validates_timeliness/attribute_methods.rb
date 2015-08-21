@@ -71,7 +71,11 @@ module ValidatesTimeliness
       end
 
       def generated_timeliness_methods
-        @generated_timeliness_methods ||= Module.new.tap { |m| include(m) }
+        @generated_timeliness_methods ||= begin
+          mod = const_set(:GeneratedValidatesTimelinessMethods, Module.new)
+          include mod
+          mod
+        end
       end
 
       def undefine_timeliness_attribute_methods
