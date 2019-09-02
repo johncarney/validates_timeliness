@@ -5,14 +5,18 @@
 
 ## Description
 
-Complete validation of dates, times and datetimes for Rails 3.x and
+Complete validation of dates, times and datetimes for Rails 3+ and
 ActiveModel.
 
-This is a Rails 4.2-compatible fork of
+This is a Rails 4.2+ compatible fork of
 [ jc-validates_timeliness gem] by [johncarney].
 which is a fork of the
 [original validates_timeliness gem][original] by [Adam Meehan][adzap].
 
+## Versions
+- v3.x for Rails3
+- v4.x for Rails4
+- v5.x for Rails5 (requires Ruby v2.2+)
 
 ## Features
 
@@ -29,7 +33,7 @@ which is a fork of the
 ## Installation
 
     # in Gemfile
-    gem 'jc-validates_timeliness'
+    gem 'jc-validates_timeliness', '~> 3.1'
 
     # Run bundler
     $ bundle install
@@ -46,23 +50,25 @@ NOTE: You may wish to enable the plugin parser and the extensions to start.
 
 ## Examples
 
-    validates_datetime :occurred_at
+```
+validates_datetime :occurred_at
 
-    validates_date :date_of_birth, :before => lambda { 18.years.ago },
-                                   :before_message => "must be at least 18 years old"
+validates_date :date_of_birth, :before => lambda { 18.years.ago },
+                               :before_message => "must be at least 18 years old"
 
-    validates_datetime :finish_time, :after => :start_time # Method symbol
+validates_datetime :finish_time, :after => :start_time # Method symbol
 
-    validates_date :booked_at, :on => :create, :on_or_after => :today # See Restriction Shorthand.
+validates_date :booked_at, :on => :create, :on_or_after => :today # See Restriction Shorthand.
 
-    validates_time :booked_at, :between => ['9:00am', '5:00pm'] # On or after 9:00AM and on or before 5:00PM
-    validates_time :booked_at, :between => '9:00am'..'5:00pm' # The same as previous example
-    validates_time :booked_at, :between => '9:00am'...'5:00pm' # On or after 9:00AM and strictly before 5:00PM
+validates_time :booked_at, :between => ['9:00am', '5:00pm'] # On or after 9:00AM and on or before 5:00PM
+validates_time :booked_at, :between => '9:00am'..'5:00pm' # The same as previous example
+validates_time :booked_at, :between => '9:00am'...'5:00pm' # On or after 9:00AM and strictly before 5:00PM
 
-    validates_time :breakfast_time, :on_or_after => '6:00am',
-                                    :on_or_after_message => 'must be after opening time',
-                                    :before => :lunchtime,
-                                    :before_message => 'must be before lunch time'
+validates_time :breakfast_time, :on_or_after => '6:00am',
+                                :on_or_after_message => 'must be after opening time',
+                                :before => :lunchtime,
+                                :before_message => 'must be before lunch time'
+```
 
 ## Usage
 
@@ -294,6 +300,13 @@ To activate it, uncomment this line in the initializer:
 
     # in the setup block
     config.enable_date_time_select_extension!
+
+## Developing the gem further
+1. Fork and clone the repo
+2. Bundle
+3. Run `rspec` to see if all tests pass
+4. TDD the new feature
+5. Make a PR
 
 ## Contributors
 

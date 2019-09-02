@@ -1,3 +1,4 @@
+require 'pry'
 require 'rspec'
 require 'rspec/collection_matchers'
 

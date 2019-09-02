@@ -18,8 +18,11 @@ Gem::Specification.new do |s|
 
   s.add_runtime_dependency(%q<timeliness>, ["~> 0.3.7"])
 
+  s.required_ruby_version = ">= 2.3.7"
+
   s.add_development_dependency "coveralls"
-  s.add_development_dependency "rspec", "~> 3.0"
-  s.add_development_dependency "rspec-rails", "~> 3.0"
+  s.add_development_dependency "pry"
+  s.add_development_dependency "rspec", ">= 3.8"
+  s.add_development_dependency "rspec-rails", "~> 3.8"
   s.add_development_dependency "rspec-collection_matchers"
 end

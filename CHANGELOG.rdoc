@@ -1,3 +1,9 @@
+= master [unreleased]
+* Gem now requires Ruby v2.3+ for Rails 5.0 compat
+
+= 3.1.0 [2014-07-16]
+* Rails 4.2 compat
+
 = 3.0.14 [2012-08-23]
 * Fix for using validates :timeliness => {} form to correctly add attributes to timeliness validated attributes.
 
